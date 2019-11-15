@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simon dice</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="main">
+        <section id="login" class="flex-center">
+            <h1>Simon dice</h1>
+            <p>Bienvenido a "Simon dice", ingrese su nombre para comenzar a jugar</p>
+            <input type="text" placeholder="Nombre"/>
+            <button id="btn-play">Jugar</button>
+        </section>
+        <section id="game" class="hide">
+            <h1>Simon dice</h1>
+            <div id="main-circle">
+                <div id="top">
+                    <div id="celeste"></div>
+                    <div id="violeta"></div>
+                </div>
+                <div id="bottom">
+                    <div id="naranja"></div>
+                    <div id="verde"></div>
+                </div>
+            </div>
+        </section>
+        <header id="data-player" class="flex-center hide">
+            <div id="target">
+                <h1>Hernan Llull</h1>
+                <h2>Puntos: 2/10</h2>
+            </div>
+        </header>
+    </div>
+        
+    <script src="./src.js"></script>
+</body>
+</html>
