@@ -25,6 +25,8 @@ body{
 }
 #form{
     margin: auto;
+    padding: 1rem;
+    text-align: center;
 }
 hr{
     width: 50%;
@@ -58,7 +60,6 @@ input{
     font-size: .81rem;
     background: #00C851;
 }
-
 /*Game*/
 #game{
     width: 80%;
@@ -74,6 +75,9 @@ input{
     margin: auto;
     background: chocolate;
     border-radius: 50%;
+    -webkit-box-shadow: 7px 7px 5px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 5px -5px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 5px -5px rgba(0,0,0,0.75);
     overflow: hidden;
 }
 
@@ -147,6 +151,10 @@ input{
     #data-player{
         height: 20vh;
         width: 100%;
+        flex-direction: row;
+    }
+    #target{
+        width: auto;
     }
     #game{
         width: 100%;

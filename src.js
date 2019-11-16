@@ -22,29 +22,26 @@ btnlogin.addEventListener("click",()=>{
 icon.addEventListener("click",()=>{
     icon.classList.add('hide')
     setTimeout(() => {
-        game.play()
+        game.onInit()
     }, 500);
 })
 
 class Game{
     constructor(){
         this.secuencia = []
-        this.MAX_LEVEL = 10
+        this.MAX_LEVEL = 15
         this.nivel_actual = 1
         this.aux_nivel = 0
-        this.difficulty = 350
+        this.difficulty = 300
         this.colores = {
             celeste,
             violeta,
             naranja,
             verde
         }
-    }
-    play(){
-        this.onInit()
+        this.selectColor = this.selectColor.bind(this)
     }
     onInit(){
-        this.selectColor = this.selectColor.bind(this)
         this.generarSecuencia()
         this.siguienteNivel()
     }
@@ -83,9 +80,17 @@ class Game{
     selectColor(event){
         let number = this.colorToNumber(event.target.id)
         if(this.secuencia[this.aux_nivel]!==number){
-            alert('perdio')
+            console.log({secuencia:this.secuencia,actual:this.nivel_actual,aux:this.aux_nivel,a:event.target.id})
+            icon.classList.remove('fa-play')
+            icon.classList.add('fa-sync')
+            icon.classList.remove('hide')
+            alert('perdio');
+            this.aux_nivel = 0;
+            this.nivel_actual = 1;
+            score.innerHTML = `Nivel: 1/${this.MAX_LEVEL}`
         }else{
             this.aux_nivel++
+            console.log(this.aux_nivel);
             if(this.aux_nivel===this.nivel_actual){
                 this.nivel_actual++
                 this.aux_nivel=0
@@ -105,7 +110,6 @@ class Game{
         }
     }
     colorToNumber(color){
-        console.log(color)
         switch(color){
             case 'celeste': return 0
             case 'violeta': return 1
@@ -118,7 +122,7 @@ class Game{
         this.colores[color].classList.add('light')
         setTimeout(() => {
             this.colores[color].classList.remove('light')
-        }, 300);
+        }, 200);
     }
 }
 
