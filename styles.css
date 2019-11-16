@@ -18,97 +18,104 @@ body{
     justify-content: center;
     align-items: center;
 }
-#login h1,#game h1{
+#login h1{
     margin: 1rem 0;
     font-size: 4rem;
     text-align: center;
 }
+#form{
+    margin: auto;
+}
+hr{
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
 /*Login*/
 #login{
-    background: #FFDFEE;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
+    background: #FFDFEE;
 }
 
 input{
-    padding:0.4rem;
+    padding:0.5rem;
     text-align: center;
     margin: 1rem;
 }
-button{
-    color:white;
-    font-size: 1.5rem;
-    padding:.5rem 3rem;
-    margin:1rem;
-}
 #btn-play{
+    margin: .375rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 0;
+    border-radius: .125rem;
+    color: white;
+    padding: .84rem 2.14rem;
+    font-size: .81rem;
     background: #00C851;
 }
 
 /*Game*/
 #game{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    width: 80%;
     height: 100vh;
     background: #DFECFF;
-    width: 60%;
-
 }
 #main-circle{
+    position: absolute;
     display: flex;
     flex-direction: column;
-    width:40%;
-    height:50%;
+    width:60vh;
+    height:60vh;
+    margin: auto;
+    background: chocolate;
     border-radius: 50%;
     overflow: hidden;
 }
 
 #celeste{
     flex:1;
-    height: 100%;
     background: #33b5e5;
 }
 #celeste.light{
     background: #77d5f7;
 }
 .celeste:active{
-    background: #77d5f7;
+    background: #77d5f7 !important;
 }
 #naranja{
     flex:1;
-    height: 100%;
     background: #ff9800;
 }
 #naranja.light{
     background: #ffb64a;
 }
 .naranja:active{
-    background: #ffb64a;
+    background: #ffb64a !important;
 }
 #violeta{
     flex:1;
-    height: 100%;
     background: #aa66cc;
 }
 #violeta.light{
     background:#cc8aed;
 }
 .violeta:active{
-    background:#cc8aed;
+    background:#cc8aed !important;
 }
 #verde{
     flex:1;
-    height: 100%;
     background: #00C851;
 }
 #verde.light{
     background: #1df575;
 }
 .verde:active{
-    background: #1df575;
+    background: #1df575 !important;
 }
 #top{
     display: flex;
@@ -119,36 +126,39 @@ button{
     height: 50%;
 }
 #data-player{
-    width: 40%;
+    width: 20%;
 }
 #target{
-    width: 40%;
-    border: 1px solid black;
+    width: 80%;
     text-align: center;
     padding: 1rem;
 }
 #data-player h1,h2{
     margin:0;
 }
+.pantalla{
+    position: absolute;
+    top:0;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#icon{
+    margin:auto;
+    font-size: 5rem;
+}
 @media(max-width:768px){
     #main{
         flex-direction: column-reverse;
     }
     #data-player{
+        height: 20vh;
         width: 100%;
-    }
-    #target{
-        padding: 0;
-        margin: 1rem;
-        border: none;
     }
     #game{
         width: 100%;
         height: 80vh;
-        justify-content: start;
-    }
-    #main-circle{
-        width: 60%;
-        height: 70%;
     }
 }

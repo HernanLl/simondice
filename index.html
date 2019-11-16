@@ -4,18 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simon dice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div id="main">
-        <section id="login" class="flex-center">
+        <section id="login" class="hide">
             <h1>Simon dice</h1>
-            <p>Bienvenido a "Simon dice", ingrese su nombre para comenzar a jugar</p>
-            <input type="text" placeholder="Nombre"/>
-            <button id="btn-play">Jugar</button>
+            <hr/>
+            <div id="form" class="flex-center">
+                <p>Bienvenido a "Simon dice", ingrese su nombre para comenzar a jugar</p>
+                <input type="text" placeholder="Nombre"/>
+                <button id="btn-play">Jugar</button>
+            </div>
         </section>
-        <section id="game" class="hide">
-            <h1>Simon dice</h1>
+        <section id="game" class="flex-center ">
             <div id="main-circle">
                 <div id="top">
                     <div id="celeste"></div>
@@ -25,12 +28,15 @@
                     <div id="naranja"></div>
                     <div id="verde"></div>
                 </div>
+                <div class="pantalla">
+                    <i id="icon" class="fas fa-play"></i>
+                </div>
             </div>
         </section>
-        <header id="data-player" class="flex-center hide">
+        <header id="data-player" class="flex-center">
             <div id="target">
-                <h1>Hernan Llull</h1>
-                <h2>Puntos: 2/10</h2>
+                <h1 id="name">Hernan Llull</h1>
+                <h2 id="score">Puntos: 2/10</h2>
             </div>
         </header>
     </div>
