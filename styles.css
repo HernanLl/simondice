@@ -136,15 +136,6 @@ input{
 #data-player h1,h2{
     margin:0;
 }
-.pantalla{
-    position: absolute;
-    top:0;
-    right: 0%;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
 #icon{
     margin:auto;
     font-size: 5rem;

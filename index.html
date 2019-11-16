@@ -9,16 +9,16 @@
 </head>
 <body>
     <div id="main">
-        <section id="login" class="hide">
+        <section id="login" class="flex-center">
             <h1>Simon dice</h1>
             <hr/>
             <div id="form" class="flex-center">
                 <p>Bienvenido a "Simon dice", ingrese su nombre para comenzar a jugar</p>
-                <input type="text" placeholder="Nombre"/>
+                <input id="input-name" type="text" placeholder="Nombre"/>
                 <button id="btn-play">Jugar</button>
             </div>
         </section>
-        <section id="game" class="flex-center ">
+        <section id="game" class="flex-center hide">
             <div id="main-circle">
                 <div id="top">
                     <div id="celeste"></div>
@@ -28,15 +28,16 @@
                     <div id="naranja"></div>
                     <div id="verde"></div>
                 </div>
-                <div class="pantalla">
-                    <i id="icon" class="fas fa-play"></i>
-                </div>
+
             </div>
         </section>
-        <header id="data-player" class="flex-center">
+        <header id="data-player" class="flex-center hide">
             <div id="target">
-                <h1 id="name">Hernan Llull</h1>
-                <h2 id="score">Puntos: 2/10</h2>
+                <h1 id="name"></h1>
+                <h2 id="score"></h2>
+            </div>
+            <div>
+                <i id="icon" class="fas fa-play"></i>
             </div>
         </header>
     </div>
