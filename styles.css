@@ -193,6 +193,12 @@ input:focus{
         height: 100%;
         padding: 0;
     }
+    .details{
+        margin-right: 0.5rem;
+    }
+    .btn{
+        padding: .84rem 1rem;
+    }
     #icon{
         padding: 1rem;
     }
