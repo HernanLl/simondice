@@ -20,7 +20,9 @@ btnlogin.addEventListener("click",()=>{
     score.innerHTML = `Nivel: 1/10`
 });
 icon.addEventListener("click",()=>{
-    icon.classList.add('hide')
+    icon.classList.remove('fa-play')
+    icon.classList.add('fa-sync')
+    game.defaultValues()
     setTimeout(() => {
         game.onInit()
     }, 500);
@@ -41,7 +43,12 @@ class Game{
         }
         this.selectColor = this.selectColor.bind(this)
     }
+    defaultValues(){
+        this.aux_nivel = 0;
+        this.nivel_actual = 1;
+    }
     onInit(){
+        score.innerHTML = `Nivel: 1/${this.MAX_LEVEL}`
         this.generarSecuencia()
         this.siguienteNivel()
     }
@@ -80,7 +87,6 @@ class Game{
     selectColor(event){
         let number = this.colorToNumber(event.target.id)
         if(this.secuencia[this.aux_nivel]!==number){
-            console.log({secuencia:this.secuencia,actual:this.nivel_actual,aux:this.aux_nivel,a:event.target.id})
             icon.classList.remove('fa-play')
             icon.classList.add('fa-sync')
             icon.classList.remove('hide')
