@@ -10,7 +10,10 @@ const violeta = document.getElementById('violeta')
 const naranja = document.getElementById('naranja')
 const verde = document.getElementById('verde')
 const icon = document.getElementById('icon')
-
+const difficulty = document.getElementById('difficulty')
+const btnEase = document.getElementById('ease');
+const btnNormal = document.getElementById('normal');
+const btnHard = document.getElementById('hard');
 
 btnlogin.addEventListener("click",()=>{
     loginSection.classList.add('hide')
@@ -19,13 +22,38 @@ btnlogin.addEventListener("click",()=>{
     name.innerHTML = input.value
     score.innerHTML = `Nivel: 1/10`
 });
-icon.addEventListener("click",()=>{
-    icon.classList.remove('fa-play')
-    icon.classList.add('fa-sync')
+btnEase.addEventListener("click",()=>{
+    game.setDifficulty(1)
     game.defaultValues()
     setTimeout(() => {
         game.onInit()
     }, 500);
+    difficulty.classList.add('hide')
+    icon.classList.remove('hide')
+})
+btnNormal.addEventListener("click",()=>{
+    game.setDifficulty(2)
+    game.defaultValues()
+    setTimeout(() => {
+        game.onInit()
+    }, 500);
+    difficulty.classList.add('hide')
+    icon.classList.remove('hide')
+})
+btnHard.addEventListener("click",()=>{
+    game.setDifficulty(3)
+    game.defaultValues()
+    setTimeout(() => {
+        game.onInit()
+    }, 500);
+    difficulty.classList.add('hide')
+    icon.classList.remove('hide')
+})
+icon.addEventListener("click",()=>{
+    icon.classList.add('hide')
+    difficulty.classList.remove('hide')
+    icon.classList.remove('fa-play')
+    icon.classList.add('fa-sync')
 })
 
 class Game{
@@ -34,7 +62,9 @@ class Game{
         this.MAX_LEVEL = 15
         this.nivel_actual = 1
         this.aux_nivel = 0
-        this.difficulty = 300
+        this.difficulty = 1000
+        this.delay = 350
+        this.reset = false
         this.colores = {
             celeste,
             violeta,
@@ -52,23 +82,35 @@ class Game{
         this.generarSecuencia()
         this.siguienteNivel()
     }
+    setDifficulty(number){
+        switch(number){
+            case 1: this.difficulty=1000;this.delay=350; break
+            case 2: this.difficulty=350;this.delay=200;break
+            case 3: this.difficulty=150;this.delay=100;break
+        }
+    }
+    getReset(){
+        return this.reset
+    }
     generarSecuencia(){
         this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
     }
     siguienteNivel(){
         if(this.nivel_actual-1===this.MAX_LEVEL){
-            alert('Gano el juego')
-            return
+            this.disableEvents()
+            swal('SimonDice','Felicitaciones, ganaste!','success')
         }
-        score.innerHTML = `Nivel: ${this.nivel_actual}/${this.MAX_LEVEL}`
-        for(let i=0; i<this.nivel_actual;i++){
+        else{
+            score.innerHTML = `Nivel: ${this.nivel_actual}/${this.MAX_LEVEL}`
+            for(let i=0; i<this.nivel_actual;i++){
+                setTimeout(() => {
+                    this.iluminarColor(this.secuencia[i])
+                }, this.difficulty * i)
+            }
             setTimeout(() => {
-                this.iluminarColor(this.secuencia[i])
-            }, this.difficulty * i)
+                this.enableEvents()
+            }, this.difficulty * this.nivel_actual)
         }
-        setTimeout(() => {
-            this.enableEvents()
-        }, this.difficulty * this.nivel_actual)
     }
     enableEvents(){
         for(let i=0;i<4;i++){
@@ -90,13 +132,11 @@ class Game{
             icon.classList.remove('fa-play')
             icon.classList.add('fa-sync')
             icon.classList.remove('hide')
-            alert('perdio');
-            this.aux_nivel = 0;
-            this.nivel_actual = 1;
-            score.innerHTML = `Nivel: 1/${this.MAX_LEVEL}`
+            swal('SimonDice','Que mal, perdiste :(','error').then(()=>{
+                this.disableEvents()
+            })
         }else{
             this.aux_nivel++
-            console.log(this.aux_nivel);
             if(this.aux_nivel===this.nivel_actual){
                 this.nivel_actual++
                 this.aux_nivel=0
@@ -128,7 +168,7 @@ class Game{
         this.colores[color].classList.add('light')
         setTimeout(() => {
             this.colores[color].classList.remove('light')
-        }, 200);
+        }, this.delay);
     }
 }
 

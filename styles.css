@@ -61,7 +61,7 @@ input{
 input:focus{
 	outline:0px;
 }
-#btn-play{
+.btn{
     margin: .375rem;
     text-transform: uppercase;
     cursor: pointer;
@@ -70,8 +70,14 @@ input:focus{
     color: white;
     padding: .84rem 3rem;
     font-size: .81rem;
+}
+.gray{
     background: rgba(238, 238, 238,0.5);
 }
+.primary{
+    background: #5254ff;
+}
+
 /*Game*/
 #game{
     width: 100%;
@@ -144,7 +150,7 @@ input:focus{
 #data-player{
     position: absolute;
     right: 0;
-    width: 40%;
+    width: 50%;
     height: 50vh;
     background: white;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
@@ -152,8 +158,9 @@ input:focus{
 #target{
     position: absolute;
     right: 0;
+    width: 50%;
     text-align: center;
-    padding: 1rem 3rem 0 3rem;
+    padding: 1rem 0rem 0 0rem;
 }
 #data-player h1,h2{
     margin:0;
@@ -162,6 +169,7 @@ input:focus{
     margin:auto;
     font-size: 5rem;
     padding-top: .5rem;
+    cursor: pointer;
 }
 .justifyContent{
     justify-content: center;

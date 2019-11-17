@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simon dice</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -15,7 +16,7 @@
             <div id="form" class="flex-center">
                 <p>Bienvenido a "Simon dice", ingrese su nombre para comenzar a jugar</p>
                 <input id="input-name" type="text" placeholder="Nombre"/>
-                <button id="btn-play">Jugar</button>
+                <button id="btn-play" class="btn gray">Jugar</button>
             </div>
         </section>
         <section id="game" class="flex-center hide">
@@ -28,7 +29,6 @@
                     <div id="naranja"></div>
                     <div id="verde"></div>
                 </div>
-
             </div>
         </section>
         <header id="data-player" class="hide">
@@ -39,6 +39,11 @@
                 </div>
                 <div>
                     <i id="icon" class="fas fa-play"></i>
+                    <div id="difficulty" class="hide">
+                        <button id="ease" class="btn primary">Facil</button>
+                        <button id="normal" class="btn primary">Normal</button>
+                        <button id="hard" class="btn primary">Dificil</button>
+                    </div>
                 </div>
             </div>
             
