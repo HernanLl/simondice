@@ -60,7 +60,7 @@ icon.addEventListener("click", () => {
 class Game {
     constructor() {
         this.secuencia = []
-        this.MAX_LEVEL = 3
+        this.MAX_LEVEL = 15
         this.nivel_actual = 1
         this.aux_nivel = 0
         this.difficulty = 1000
